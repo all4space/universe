@@ -6,17 +6,15 @@ public class UsersVO {
 	private String userId;
 	private String userName;
 	private String userPwd;
-	private String authority;
 	
 	public UsersVO(){}
 	
-	public UsersVO(int userNo, String userId, String userName, String userPwd, String authority) {
+	public UsersVO(int userNo, String userId, String userName, String userPwd) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
 		this.userName = userName;
 		this.userPwd = userPwd;
-		this.authority = authority;
 	}
 
 	public int getUserNo() {
@@ -51,18 +49,10 @@ public class UsersVO {
 		this.userPwd = userPwd;
 	}
 
-	public String getAuthority() {
-		return authority;
-	}
-
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
-
 	@Override
 	public String toString() {
 		return "UserVO [userNo=" + userNo + ", userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd
-				+ ", authority=" + authority + "]";
+				;
 	}
 	
 	
