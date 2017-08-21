@@ -12,9 +12,8 @@
 	commit & push update test 
 	
 	hyeonmin test
-asdasdasdsadasdasd
 
-525225222828
+	soyeon test
 </h1>
 
 </body>
