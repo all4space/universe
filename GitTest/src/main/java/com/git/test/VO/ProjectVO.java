@@ -1,19 +1,18 @@
 package com.git.test.VO;
 
 public class ProjectVO {
+	
 	private int projectNo;
 	private int userNo;
-	private String authority;
 	private String projectName;
 	private String projectContent;
 	private String proejctStatus;
 	private String startDate;
 	private String dueDate;
 	
-
 	public ProjectVO(){}
 
-	public ProjectVO(int projectNo, int userNo, String authority, String projectName, String projectContent, String proejctStatus,
+	public ProjectVO(int projectNo, int userNo, String projectName, String projectContent, String proejctStatus,
 			String startDate, String dueDate) {
 		super();
 		this.projectNo = projectNo;
@@ -23,9 +22,8 @@ public class ProjectVO {
 		this.proejctStatus = proejctStatus;
 		this.startDate = startDate;
 		this.dueDate = dueDate;
-		this.authority = authority;
 	}
-	
+
 	public int getProjectNo() {
 		return projectNo;
 	}
@@ -81,20 +79,16 @@ public class ProjectVO {
 	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
-	public String getAuthority() {
-		return authority;
-	}
-	
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
-
 
 	@Override
 	public String toString() {
 		return "ProjectVO [projectNo=" + projectNo + ", userNo=" + userNo + ", projectName=" + projectName
 				+ ", projectContent=" + projectContent + ", proejctStatus=" + proejctStatus + ", startDate=" + startDate
-				+ ", dueDate=" + dueDate + ", authority=" + authority + "]";
+				+ ", dueDate=" + dueDate + "]";
 	}
-	
+
 }
+    
+
+	
+

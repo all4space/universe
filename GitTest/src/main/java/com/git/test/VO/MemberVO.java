@@ -3,6 +3,7 @@ package com.git.test.VO;
 public class MemberVO {
 
 	private int memberNo;
+	private String projectAuthority;
 	private int projectNo;
 	private int userNo;
 	private int taskNo;
@@ -12,9 +13,11 @@ public class MemberVO {
 	
 	public MemberVO(){}
 
-	public MemberVO(int memberNo, int projectNo, int userNo, int taskNo, int workNo, int canWork, int mustWork) {
+	public MemberVO(int memberNo, String projectAuthority, int projectNo, int userNo, int taskNo, int workNo,
+			int canWork, int mustWork) {
 		super();
 		this.memberNo = memberNo;
+		this.projectAuthority = projectAuthority;
 		this.projectNo = projectNo;
 		this.userNo = userNo;
 		this.taskNo = taskNo;
@@ -29,6 +32,14 @@ public class MemberVO {
 
 	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
+	}
+
+	public String getProjectAuthority() {
+		return projectAuthority;
+	}
+
+	public void setProjectAuthority(String projectAuthority) {
+		this.projectAuthority = projectAuthority;
 	}
 
 	public int getProjectNo() {
@@ -81,9 +92,11 @@ public class MemberVO {
 
 	@Override
 	public String toString() {
-		return "MemberVO [memberNo=" + memberNo + ", projectNo=" + projectNo + ", userNo=" + userNo + ", taskNo="
-				+ taskNo + ", workNo=" + workNo + ", canWork=" + canWork + ", mustWork=" + mustWork + "]";
+		return "MemberVO [memberNo=" + memberNo + ", projectAuthority=" + projectAuthority + ", projectNo=" + projectNo
+				+ ", userNo=" + userNo + ", taskNo=" + taskNo + ", workNo=" + workNo + ", canWork=" + canWork
+				+ ", mustWork=" + mustWork + "]";
 	}
-	
-	
+
 }
+	
+	
