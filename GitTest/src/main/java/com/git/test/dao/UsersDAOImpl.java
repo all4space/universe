@@ -15,10 +15,11 @@ public class UsersDAOImpl implements UsersDAO{
 	SqlSession Sqlsession;
 	
 	@Override
-	public void Join(UsersVO vo) {
-		
+	public void join(UsersVO vo) {
+		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
+		mapper.join(vo);
 	}
-
+	
 	@Override
 	public UsersVO Login(UsersVO vo) {
 		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
@@ -30,5 +31,6 @@ public class UsersDAOImpl implements UsersDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

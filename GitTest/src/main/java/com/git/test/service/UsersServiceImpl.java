@@ -14,9 +14,10 @@ public class UsersServiceImpl implements UsersService{
 	@Autowired
 	UsersDAOImpl dao;
 	
+	
 	@Override
-	public void Join(UsersVO vo) {
-		
+	public void join(UsersVO vo) {
+		dao.join(vo); 		
 	}
 
 	@Override
@@ -36,5 +37,11 @@ public class UsersServiceImpl implements UsersService{
 	public void Logout(HttpSession session) {
 	}
 
-
 }
+
+
+	
+
+
+
+

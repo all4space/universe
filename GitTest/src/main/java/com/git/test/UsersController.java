@@ -27,4 +27,15 @@ public class UsersController {
 		service.Login(vo,session);
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "joinForm", method = RequestMethod.GET)
+	public String joinForm() {
+		return "joinForm";
+	}
+	
+	@RequestMapping(value = "join", method = RequestMethod.POST)
+	public String join(UsersVO vo) {
+		service.join(vo);
+		return "join";
+	}
 }

@@ -78,6 +78,7 @@
 
 							<div class="button-login">	
 								<button type="submit" class="btn btn-primary">Login</button>
+								<a href="/test/users/joinForm"><button type="button" class="btn btn-join">Join</button></a>
 							</div>
 							<div class="clearfix"></div>
 					</form>
