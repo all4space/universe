@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <html lang="en">
 <head>
 	
@@ -33,12 +35,13 @@
 		<link id="ie9style" href="/test/resources/bootstrap/css/ie9.css" rel="stylesheet">
 	<![endif]-->
 		
-	<!-- start: Favicon -->
+<!--  start: Favicon -->
 	<link rel="shortcut icon" href="/test/resources/bootstrap/img/favicon.ico">
-	<!-- end: Favicon -->
+	<!-- end: Favicon --> 
 	
 			<style type="text/css">
-			body { background: url(/test/resources/bootstrap/img/bg-login.jpg) !important; }
+			body { background: url(/test/resources/bootstrap/img/bg-login.jpg) !important; 
+			}
 		</style>
 		
 		
@@ -56,18 +59,18 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Login to your account</h2>
-					<form class="form-horizontal" action="index.jsp" method="post">
+					<form class="form-horizontal" action="login" method="post">
 						<fieldset>
 							
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="username" id="username" type="text" placeholder="type username"/>
+								<input class="input-large span10" name="userId" id="username" type="text" placeholder="type username"/>
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="password" id="password" type="password" placeholder="type password"/>
+								<input class="input-large span10" name="userPwd" id="password" type="password" placeholder="type password"/>
 							</div>
 							<div class="clearfix"></div>
 							
