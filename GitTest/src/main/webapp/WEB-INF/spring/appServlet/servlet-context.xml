@@ -23,6 +23,7 @@
 	
 	<context:component-scan base-package="com.git.test" />
 	
-	
-	
+	<!--인터셉트 만들 때 주석 없앰 xmlns:mvc="http://www.springframework.org/schema/mvc"  -->
+	<!-- <beans:bean id="loginInterceptor" class="global.sesoc.meet.interceptor.LoginInterceptor"></beans:bean> -->
+		
 </beans:beans>
