@@ -6,22 +6,17 @@ public class MemberVO {
 	private String projectAuthority;
 	private int projectNo;
 	private int userNo;
-	private int taskNo;
-	private int workNo;
 	private int canWork;
 	private int mustWork;
 	
 	public MemberVO(){}
 
-	public MemberVO(int memberNo, String projectAuthority, int projectNo, int userNo, int taskNo, int workNo,
-			int canWork, int mustWork) {
+	public MemberVO(int memberNo, String projectAuthority, int projectNo, int userNo, int canWork, int mustWork) {
 		super();
 		this.memberNo = memberNo;
 		this.projectAuthority = projectAuthority;
 		this.projectNo = projectNo;
 		this.userNo = userNo;
-		this.taskNo = taskNo;
-		this.workNo = workNo;
 		this.canWork = canWork;
 		this.mustWork = mustWork;
 	}
@@ -58,22 +53,6 @@ public class MemberVO {
 		this.userNo = userNo;
 	}
 
-	public int getTaskNo() {
-		return taskNo;
-	}
-
-	public void setTaskNo(int taskNo) {
-		this.taskNo = taskNo;
-	}
-
-	public int getWorkNo() {
-		return workNo;
-	}
-
-	public void setWorkNo(int workNo) {
-		this.workNo = workNo;
-	}
-
 	public int getCanWork() {
 		return canWork;
 	}
@@ -93,10 +72,11 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memberNo=" + memberNo + ", projectAuthority=" + projectAuthority + ", projectNo=" + projectNo
-				+ ", userNo=" + userNo + ", taskNo=" + taskNo + ", workNo=" + workNo + ", canWork=" + canWork
-				+ ", mustWork=" + mustWork + "]";
+				+ ", userNo=" + userNo + ", canWork=" + canWork + ", mustWork=" + mustWork + "]";
 	}
 
 }
+	
+
 	
 	

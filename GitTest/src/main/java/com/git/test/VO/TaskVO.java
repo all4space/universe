@@ -3,7 +3,7 @@ package com.git.test.VO;
 public class TaskVO {
 
 	private int projectNo;
-	private int userNo;
+	private int memberNo;
 	private int taskNo;
 	private String taskName;
 	private String taskContent;
@@ -11,14 +11,16 @@ public class TaskVO {
 	private String taskStatus;
 	private String startDate;
 	private String dueDate;
+	private int totalTime;
+	private int doneTime;
 	
 	public TaskVO(){}
-	
-	public TaskVO(int projectNo, int userNo, int taskNo, String taskName, String taskContent, String taskPriority,
-			String taskStatus, String startDate, String dueDate) {
+
+	public TaskVO(int projectNo, int memberNo, int taskNo, String taskName, String taskContent, String taskPriority,
+			String taskStatus, String startDate, String dueDate, int totalTime, int doneTime) {
 		super();
 		this.projectNo = projectNo;
-		this.userNo = userNo;
+		this.memberNo = memberNo;
 		this.taskNo = taskNo;
 		this.taskName = taskName;
 		this.taskContent = taskContent;
@@ -26,6 +28,8 @@ public class TaskVO {
 		this.taskStatus = taskStatus;
 		this.startDate = startDate;
 		this.dueDate = dueDate;
+		this.totalTime = totalTime;
+		this.doneTime = doneTime;
 	}
 
 	public int getProjectNo() {
@@ -36,12 +40,12 @@ public class TaskVO {
 		this.projectNo = projectNo;
 	}
 
-	public int getUserNo() {
-		return userNo;
+	public int getMemberNo() {
+		return memberNo;
 	}
 
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
 	}
 
 	public int getTaskNo() {
@@ -100,11 +104,29 @@ public class TaskVO {
 		this.dueDate = dueDate;
 	}
 
+	public int getTotalTime() {
+		return totalTime;
+	}
+
+	public void setTotalTime(int totalTime) {
+		this.totalTime = totalTime;
+	}
+
+	public int getDoneTime() {
+		return doneTime;
+	}
+
+	public void setDoneTime(int doneTime) {
+		this.doneTime = doneTime;
+	}
+
 	@Override
 	public String toString() {
-		return "TaskVO [projectNo=" + projectNo + ", userNo=" + userNo + ", taskNo=" + taskNo + ", taskName=" + taskName
-				+ ", taskContent=" + taskContent + ", taskPriority=" + taskPriority + ", taskStatus=" + taskStatus
-				+ ", startDate=" + startDate + ", dueDate=" + dueDate + "]";
+		return "TaskVO [projectNo=" + projectNo + ", memberNo=" + memberNo + ", taskNo=" + taskNo + ", taskName="
+				+ taskName + ", taskContent=" + taskContent + ", taskPriority=" + taskPriority + ", taskStatus="
+				+ taskStatus + ", startDate=" + startDate + ", dueDate=" + dueDate + ", totalTime=" + totalTime
+				+ ", doneTime=" + doneTime + "]";
 	}
 	
 }
+	
