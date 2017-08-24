@@ -62,9 +62,9 @@
 					<form class="form-horizontal" action="login" method="post">
 						<fieldset>
 							
-							<div class="input-prepend" title="Username">
+							<div class="input-prepend" title="UserId">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="userId" id="username" type="text" placeholder="type username"/>
+								<input class="input-large span10" name="userId" id="userId" type="text" placeholder="type userId"/>
 							</div>
 							<div class="clearfix"></div>
 

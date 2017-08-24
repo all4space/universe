@@ -1,5 +1,6 @@
 package com.git.test.service;
 
+import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,23 +22,41 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public void Login(UsersVO vo, HttpSession session) {
-		if(dao.Login(vo) != null){
-			session.setAttribute("LoginId", vo.getUserId());
-			session.setAttribute("username", vo.getUserName());
+	public boolean idCheck(String userId) {
+		UsersVO vo = dao.idCheck(userId);
+		if(vo != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean ctoCheck(UsersVO vo) {
+		UsersVO cto = dao.ctoCheck(vo);
+		if(cto != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public void login(UsersVO vo, HttpSession session) {
+		UsersVO loginVO = dao.login(vo);
+		if(dao.login(vo) != null){
+			session.setAttribute("loginId", loginVO.getUserId());
+			session.setAttribute("userName", loginVO.getUserName());
 		}
 	}
-
-	@Override
-	public UsersVO Checking(UsersVO vo) {
-		return null;
-	}
-
-	@Override
-	public void Logout(HttpSession session) {
-	}
-
+	
 }
+
+
+
+	
+
+
+
+
 
 
 	

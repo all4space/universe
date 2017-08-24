@@ -4,15 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.git.test.dao.UsersMapper">
+
 <!-- 회원 가입 -->
 <insert id="join" parameterType="UsersVO">
     INSERT INTO USERS VALUES(user_seq.nextval, #{userId}, #{userName}, #{userPwd}, #{groupName}, #{authority})
 </insert>
 
+<!-- ID 중복 체크 -->
+<select id="idCheck" resultType="UsersVO" parameterType="String">
+	SELECT * FROM USERS WHERE userid = #{userId}
+</select>
+
+<!-- CTO 중복 체크 -->
+<select id="ctoCheck" resultType="UsersVO" parameterType="UsersVO">
+	SELECT * FROM USERS WHERE groupname = #{groupName} and authority = 'cto'
+</select>
+
 <!-- 로그인 -->
-<select id="Login" resultType="UsersVO" parameterType="UsersVO">
-	select userid, username from users
-	where userid = #{userId} and userpwd = #{userPwd}
+<select id="login" resultType="UsersVO" parameterType="UsersVO">
+	SELECT * FROM USERS 
+	WHERE userid = #{userId} and userpwd = #{userPwd}
 </select>
 
 </mapper>

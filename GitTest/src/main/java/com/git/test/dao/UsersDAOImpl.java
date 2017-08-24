@@ -21,16 +21,28 @@ public class UsersDAOImpl implements UsersDAO{
 	}
 	
 	@Override
-	public UsersVO Login(UsersVO vo) {
+	public UsersVO idCheck(String userId) {
 		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
-		return mapper.Login(vo);
+		return mapper.idCheck(userId);
+	}
+	
+	@Override
+	public UsersVO ctoCheck(UsersVO vo) {
+		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
+		return mapper.ctoCheck(vo);
+	}
+	
+	@Override
+	public UsersVO login(UsersVO vo) {
+		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
+		return mapper.login(vo);
 	}
 
-	@Override
-	public UsersVO Checking(UsersVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
+	
+
+
 
 
 }

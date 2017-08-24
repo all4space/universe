@@ -1,5 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	
 	<!-- start: Meta -->
@@ -42,8 +45,82 @@
 		</style>
 		
 		
-		
+<script src="/test/resources/js/jquery-3.2.1.min.js"></script>		
 </head>
+<script>
+   
+   /* 회원 가입 양식 유효성 체크 */
+   $(function() {
+		  $("#join").click(function() {
+			  
+			  if($("#userId").val().length == 0){
+				  alert("ID를 입력해 주세요");
+				  $("#userId").focus();
+				  return false;
+			  } else if($("#userName").val().length == 0){
+				  alert("이름을 입력해 주세요");
+				  $("#userName").focus();
+				  return false;
+			  } else if($("#userPwd").val().length == 0){
+				  alert("비밀번호를 입력해 주세요");
+				  $("#userPwd").focus();
+				  return false;
+			  } else if($("#groupName").val().length == 0){
+				  alert("그룹 이름을 입력해 주세요");
+				  $("#groupName").focus();
+				  return false;
+			  }  else if(($("input[name*='authority']:checked").length)<=0){
+				  alert("권한을 체크해 주세요");
+				  return false;
+			  } else if($("input[name*='authority']:checked").val() == "cto"){
+			      ctoCheck(); 
+				  return false;
+			  }
+			  document.fm.submit();
+				  
+		})
+   });
+   
+   
+   /* ID 중복 체크  */
+   function idCheck() {
+	     $.ajax({
+			  url: "/test/users/idCheck", 
+			  type: "post", 
+			  data: {"userId" : $("#userId").val()}, 
+			  success: function(result) {
+				  if(result){
+				    confirm("이미 존재하는 아이디");
+				    $("#join").attr("disabled", "disabled"); 
+				  } else {
+					 confirm("사용 가능한 아이디");
+					 $("#join").removeAttr("disabled");
+				  }
+			  }	  
+		  });
+   } 
+	
+  /* CTO UNIQUE 체크 : 한 그룹 안에 cto로 가입된 회원은 1명으로 한정 */
+  function ctoCheck(){
+	  $.ajax({
+		  url: "/test/users/ctoCheck", 
+		  type: "post", 
+		  data: {"groupName" : $("#groupName").val()}, 
+		  success: function(result) {
+			  if(result){
+			     confirm("CTO 권한이 없음! Manager or Member 선택해주세요");
+			     $("#cto").click(); 
+			     $("#cto").attr("disabled", true);
+			  } else {
+				 $("#join").removeAttr("disabled");
+				 document.fm.submit();
+			  }
+		  }	  
+	   });
+  }
+   
+   
+</script>
 
 <body>
 		<div class="container-fluid-full">
@@ -56,13 +133,18 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Create your account</h2>
-					<form class="form-horizontal" action="join" method="post">
+					<form class="form-horizontal" name="fm" action="join" method="post">
 						<fieldset>
 							
 							<div class="input-prepend" title="UserId">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
 								<input class="input-large span10" name="userId" id="userId" type="text" placeholder="type userId"/>
 							</div>
+							<!-- 버튼 위치 조정 필요 -->
+							    <span style="float: right">
+								<button type="button" class="btn btn-idCheck" onclick="idCheck()">중복 체크</button>
+							    </span>
+							    
 							
 							<div class="clearfix"></div>
 							<div class="input-prepend" title="UserName">
@@ -83,26 +165,33 @@
 								<input class="input-large span10" name="groupName" id="groupName" type="text" placeholder="type groupName"/>
 							</div>
 							<div class="clearfix"></div>
-							
-							<div class="clearfix"></div>
-							    <center> Authority
-								 CTO <input type="checkbox" value="cto" name="authority"/>
-								 Manager <input type="checkbox" value="manager" name="authority"/>
-								 Member <input type="checkbox" value="member" name="authority"/> 
+                            
+                            <div title="Authority"> 
+                                <!-- 라디오 버튼으로 하면 체크가 안됨 -->
+								<!--  <input type="radio" name="authority" value="cto"/> CTO
+								 <input type="radio" name="authority" value="manager"/> Manager
+								 <input type="radio" name="authority" value="member"/> Member -->
+								 
+								 <center>
+								  Authority
+								 <input type="checkbox" name="authority" id="cto" value="cto"/> CTO
+								 <input type="checkbox" name="authority" value="manager"/> Manager
+								 <input type="checkbox" name="authority" value="member"/> Member
 								 </center>
-							<div class="clearfix"></div>
-                                   
-							<div class="clearfix"></div>
+                            </div>
+								 
+                            
 							<div class="button-join">	
 							    <center>
-								<button type="submit" class="btn btn-join">Join</button>
+								<button type="button" class="btn btn-join" id="join">Join</button>
 							    </center>
 							</div>
-							<div class="clearfix"></div>
 					</form>
 							    
 				</div><!--/span-->
 			</div><!--/row-->
+							
+                                   
 			
 
 	</div><!--/.fluid-container-->
