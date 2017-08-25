@@ -14,6 +14,7 @@ import com.git.test.VO.TaskVO;
 import com.git.test.VO.UsersVO;
 import com.git.test.service.GanttServiceImpl;
 import com.git.test.service.ProjectServiceImpl;
+import com.git.test.service.UsersServiceImpl;
 
 @RequestMapping("/project")
 @Controller
@@ -23,7 +24,9 @@ public class ProjectController {
 	ProjectServiceImpl service;
 	@Autowired
 	GanttServiceImpl service_G;
-	
+	@Autowired
+	UsersServiceImpl userService;
+
 	@RequestMapping(value = "Gantt", method = RequestMethod.GET)
 	public ModelAndView GanttForm(UsersVO vo,HttpSession session) {
 		String userid = (String) session.getAttribute("loginId");
@@ -37,6 +40,16 @@ public class ProjectController {
 		mav.addObject("taskList",service_G.taskSerialize(vo, "none"));
 		
 		return mav;
+	}
+
+	@RequestMapping(value = "projectForm", method = RequestMethod.GET)
+	public ModelAndView projectForm() {
+		
+		ModelAndView mov = new ModelAndView("/projectForm");
+		mov.addObject("groupNameList", userService.groupNameList());
+		System.out.println("mov? " + mov.toString());
+		
+		return mov;
 	}
 	
 }

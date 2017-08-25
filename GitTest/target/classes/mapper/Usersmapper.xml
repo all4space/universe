@@ -32,6 +32,10 @@
 	WHERE userid = #{userId} and userpwd = #{userPwd}
 </delete>
 
+<select id="groupNameList" resultType = "UsersVO">
+	select distinct groupname from users order by groupname <!-- 중복제거 -->
+</select>
+
 </mapper>
 
 

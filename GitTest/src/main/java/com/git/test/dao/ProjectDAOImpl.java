@@ -52,6 +52,12 @@ public class ProjectDAOImpl implements ProjectDAO{
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
 		return mapper.taskSerialize(vo, action);
 	}
+
+	public ArrayList<UsersVO> groupNameList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

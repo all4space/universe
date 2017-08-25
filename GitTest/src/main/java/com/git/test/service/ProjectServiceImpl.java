@@ -10,12 +10,16 @@ import org.springframework.stereotype.Service;
 import com.git.test.VO.ProjectVO;
 import com.git.test.VO.UsersVO;
 import com.git.test.dao.ProjectDAOImpl;
+import com.git.test.dao.UsersDAOImpl;
 
 @Service
 public class ProjectServiceImpl implements ProjectService{
 
 	@Autowired
 	ProjectDAOImpl dao;
+	
+	@Autowired
+	UsersDAOImpl userDao;
 	
 	@Override
 	public void projectAdd(UsersVO vo) {
@@ -40,5 +44,4 @@ public class ProjectServiceImpl implements ProjectService{
 		dao.getProjectList(vo);
 		return null;
 	}
-
 }

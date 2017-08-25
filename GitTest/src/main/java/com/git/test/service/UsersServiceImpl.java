@@ -1,5 +1,7 @@
 package com.git.test.service;
 
+import java.util.ArrayList;
+
 import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpSession;
 
@@ -54,6 +56,11 @@ public class UsersServiceImpl implements UsersService{
     	   return true; 
        }
        return false;
+	}
+
+	public ArrayList<UsersVO> groupNameList() {
+
+		return dao.groupNameList();
 	}
 
 	
