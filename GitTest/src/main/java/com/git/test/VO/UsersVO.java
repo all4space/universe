@@ -1,16 +1,15 @@
 package com.git.test.VO;
 
 public class UsersVO {
-
 	private int userNo;
 	private String userId;
 	private String userName;
 	private String userPwd;
 	private String groupName;
-	private String authority;
+	private String Authority;
 	
 	public UsersVO(){}
-
+	
 	public UsersVO(int userNo, String userId, String userName, String userPwd, String groupName, String authority) {
 		super();
 		this.userNo = userNo;
@@ -18,7 +17,7 @@ public class UsersVO {
 		this.userName = userName;
 		this.userPwd = userPwd;
 		this.groupName = groupName;
-		this.authority = authority;
+		Authority = authority;
 	}
 
 	public int getUserNo() {
@@ -62,18 +61,17 @@ public class UsersVO {
 	}
 
 	public String getAuthority() {
-		return authority;
+		return Authority;
 	}
 
 	public void setAuthority(String authority) {
-		this.authority = authority;
+		Authority = authority;
 	}
 
 	@Override
 	public String toString() {
 		return "UsersVO [userNo=" + userNo + ", userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd
-				+ ", groupName=" + groupName + ", authority=" + authority + "]";
+				+ ", groupName=" + groupName + ", Authority=" + Authority + "]";
 	}
 	
 }
-	

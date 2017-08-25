@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
 	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
@@ -13,7 +15,6 @@
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
-	
 	<!-- start: CSS -->
 	<link id="bootstrap-style" href="/test/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/test/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -21,7 +22,7 @@
 	<link id="base-style-responsive" href="/test/resources/bootstrap/css/style-responsive.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
-	
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -36,12 +37,8 @@
 	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="/test/resources/bootstrap/img/favicon.ico">
 	<!-- end: Favicon -->
-	
-		
-		
-		
+	<script src = "/test/resources/js/jquery-3.2.1.min.js"></script>
 </head>
-
 <body>
 		<!-- start: Header -->
 	<div class="navbar">
@@ -384,7 +381,6 @@
 					<a href="#">UI Features</a>
 				</li>
 			</ul>
-	
 			<div class="row-fluid">	
 				<div class="box yellow span12">
 					<div class="box-header">
@@ -393,10 +389,33 @@
 					<div class="box-content">
 						<table class="table table-striped">
 							<tr>
+								<td><div style = "color: black;">ddd<c:forEach items="${taskList}" var="taskList">
+									${taskList.startdate}	${taskList.duedate}
+									</c:forEach></div>
+								<div class="progress">
+								  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 15%; background-color: black;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" ></div>
+								  <div class="progress-bar" role="progressbar" style="width: 30%; background-color: white; " aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+								  <div class="progress-bar" role="progressbar" style="width: 20%; background-color: white;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+								  <div class="progress-bar" role="progressbar" style="width: 35%; background-color: white;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div style = "color: black;">ddd</div>
+									<div class="progress">
+								  <div class="progress-bar" role="progressbar" style="width: 15%; background-color: white;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" ></div>
+								  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 30%; background-color:blue; " aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+								  <div class="progress-bar" role="progressbar" style="width: 20%; background-color: white;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+								  <div class="progress-bar" role="progressbar" style="width: 35%; background-color: white;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								</td>
+							</tr>					
+				<!-- 			<tr>
 								<td>
 									<div class="slider sliderSimple"></div>
 								</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<td>
 									<div class="slider sliderMin green"></div>
@@ -711,19 +730,19 @@
 					</div>
 					<div class="box-content alerts">
 						<div class="alert alert-error">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã</button>
 							<strong>Oh snap!</strong> Change a few things up and try submitting again.
 						</div>
 						<div class="alert alert-success">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã</button>
 							<strong>Well done!</strong> You successfully read this important alert message.
 						</div>
 						<div class="alert alert-info">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã</button>
 							<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
 						</div>
 						<div class="alert alert-block ">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã</button>
 							<h4 class="alert-heading">Warning!</h4>
 							<p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
 						</div>
@@ -747,7 +766,7 @@
 					</div>
 					<div class="box-content">
 						<div class="alert alert-block">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã</button>
 							<h4 class="alert-heading">Attention!</h4>
 							<p>Click buttons below to see Pop Notifications.</p>
 						</div>
@@ -778,7 +797,7 @@
 					</div>
 					<div class="box-content">
 						<div class="alert alert-block">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã</button>
 							<h4 class="alert-heading">Attention!</h4>
 							<p>Click buttons below to see Pop Notifications.</p>
 						</div>
@@ -1015,7 +1034,7 @@
 		
 	<div class="modal hide fade" id="myModal">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">×</button>
+			<button type="button" class="close" data-dismiss="modal">Ã</button>
 			<h3>Settings</h3>
 		</div>
 		<div class="modal-body">
@@ -1094,6 +1113,7 @@
 		<script src="/test/resources/bootstrap/js/retina.js"></script>
 
 		<script src="/test/resources/bootstrap/js/custom.js"></script>
+		
 	<!-- end: JavaScript-->
 	
 </body>
