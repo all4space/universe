@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 <!DOCTYPE html>
 <html>
@@ -311,7 +312,6 @@
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="halflings-icon white user"></i>
-							    <!-- 왜 출력이 안될까 -->
 								${userName}
 								<span class="caret"></span>
 							</a>
@@ -320,7 +320,10 @@
  									<span>Account Settings</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+								<c:if test="${userName != null}">
 								<li><a href="/test/users/logout"><i class="halflings-icon off"></i> Logout</a></li>
+								</c:if>
+								
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->

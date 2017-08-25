@@ -9,4 +9,5 @@ public interface UsersMapper {
 	public UsersVO idCheck(String userId); // ID 중복 체크 
 	public UsersVO ctoCheck(UsersVO vo); // CTO 중복 체크 
 	public UsersVO login(UsersVO vo); // 로그인
+	public int delete(UsersVO vo); // 회원 탈퇴 
 }

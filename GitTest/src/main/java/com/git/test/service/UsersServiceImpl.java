@@ -47,6 +47,15 @@ public class UsersServiceImpl implements UsersService{
 			session.setAttribute("userName", loginVO.getUserName());
 		}
 	}
+
+	@Override
+	public boolean delete(UsersVO vo) {
+       if(dao.delete(vo) == 1) {
+    	   return true; 
+       }
+       return false;
+	}
+
 	
 }
 

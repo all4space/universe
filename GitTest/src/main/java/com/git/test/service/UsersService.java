@@ -9,4 +9,5 @@ public interface UsersService {
     public boolean idCheck(String userId); // ID 중복 체크
     public boolean ctoCheck(UsersVO vo); // CTO 중복 체크 
 	public void login(UsersVO vo, HttpSession session); // 로그인
+	public boolean delete(UsersVO vo); // 회원 탈퇴 
 }

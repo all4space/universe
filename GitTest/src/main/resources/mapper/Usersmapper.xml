@@ -26,6 +26,12 @@
 	WHERE userid = #{userId} and userpwd = #{userPwd}
 </select>
 
+<!-- 회원 탈퇴 -->
+<delete id="delete" parameterType="UsersVO">
+	DELETE FROM USERS 
+	WHERE userid = #{userId} and userpwd = #{userPwd}
+</delete>
+
 </mapper>
 
 

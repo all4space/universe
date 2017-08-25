@@ -83,9 +83,9 @@
 							<div class="clearfix"></div>
 					</form>
 					<hr>
-					<h3>Forgot Password?</h3>
+					<h3>탈퇴?</h3>
 					<p>
-						No problem, <a href="#">click here</a> to get a new password.
+						No problem, <a href="/test/users/deleteForm">click here</a> to 탈퇴
 					</p>	
 				</div><!--/span-->
 			</div><!--/row-->

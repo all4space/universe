@@ -38,6 +38,13 @@ public class UsersDAOImpl implements UsersDAO{
 		return mapper.login(vo);
 	}
 
+	@Override
+	public int delete(UsersVO vo) {
+		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
+		return mapper.delete(vo);
+	}
+
+}
 
 
 	
@@ -45,4 +52,3 @@ public class UsersDAOImpl implements UsersDAO{
 
 
 
-}

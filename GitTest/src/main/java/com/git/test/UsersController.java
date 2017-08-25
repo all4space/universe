@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.git.test.VO.UsersVO;
 import com.git.test.service.UsersServiceImpl;
@@ -50,21 +52,14 @@ public class UsersController {
 	@RequestMapping(value = "idCheck", method = RequestMethod.POST)
 	@ResponseBody
 	public boolean idCheck(String userId) {
-		System.out.println(userId);
-        boolean result = service.idCheck(userId);
-        System.out.println(result);
-        return result;
+        return service.idCheck(userId);
 	}
 	
 	// CTO 중복 체크 
 	@RequestMapping(value = "ctoCheck", method = RequestMethod.POST)
 	@ResponseBody
 	public boolean ctoCheck(UsersVO vo) {
-		System.out.println(vo.toString());
-	    boolean result = service.ctoCheck(vo);
-		
-		System.out.println("cto 있어?" + result);
-		return result;
+	    return service.ctoCheck(vo);
 	}
 	
 	// 로그아웃
@@ -73,5 +68,19 @@ public class UsersController {
         session.invalidate();
 		return "redirect:/";
 	}
-        
+     
+	// 회원 탈퇴 양식 불러오기
+	@RequestMapping(value = "deleteForm", method = RequestMethod.GET)
+	public String deleteForm() {
+		return "deleteForm";
+	}
+	
+	// 회원 탈퇴
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(UsersVO vo, RedirectAttributes rttr) {
+        if(service.delete(vo)){
+        	rttr.addFlashAttribute("msg", "true");
+        }
+        return "redirect:/";
+	}
 }
