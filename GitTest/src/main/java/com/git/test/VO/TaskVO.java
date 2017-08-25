@@ -120,13 +120,5 @@ public class TaskVO {
 		this.doneTime = doneTime;
 	}
 
-	@Override
-	public String toString() {
-		return "TaskVO [projectNo=" + projectNo + ", memberNo=" + memberNo + ", taskNo="
-				+ taskNo + ", taskName=" + taskName + ", taskContent=" + taskContent + ", taskPriority=" + taskPriority
-				+ ", taskStatus=" + taskStatus + ", startDate=" + startDate + ", dueDate=" + dueDate + ", totalTime="
-				+ totalTime + ", doneTime=" + doneTime + "]";
-	}
-
 }
 	

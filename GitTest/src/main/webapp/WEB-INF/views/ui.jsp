@@ -388,10 +388,15 @@
 					</div>
 					<div class="box-content">
 						<table class="table table-striped">
+						<c:forEach items="${taskList}" var="taskList">
 							<tr>
-								<td><div style = "color: black;">ddd<c:forEach items="${taskList}" var="taskList">
-									${taskList.startdate}	${taskList.duedate}
-									</c:forEach></div>
+								<td>
+								<div class = "date" style="color : black">
+									${taskList.startDate}
+									<c:if test="${taskList.totalTime != 0}">
+										&nbsp;
+ 									</c:if>
+									${taskList.dueDate}
 								<div class="progress">
 								  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 15%; background-color: black;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" ></div>
 								  <div class="progress-bar" role="progressbar" style="width: 30%; background-color: white; " aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
@@ -400,17 +405,8 @@
 								</div>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<div style = "color: black;">ddd</div>
-									<div class="progress">
-								  <div class="progress-bar" role="progressbar" style="width: 15%; background-color: white;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" ></div>
-								  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 30%; background-color:blue; " aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-								  <div class="progress-bar" role="progressbar" style="width: 20%; background-color: white;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-								  <div class="progress-bar" role="progressbar" style="width: 35%; background-color: white;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-								</td>
-							</tr>					
+						</c:forEach>
+							
 				<!-- 			<tr>
 								<td>
 									<div class="slider sliderSimple"></div>

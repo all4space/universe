@@ -43,14 +43,15 @@ public class ProjectDAOImpl implements ProjectDAO{
 
 	@Override
 	public MemberVO getMemberNo(UsersVO vo) {
+		System.out.println("들어오냐고");
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
 		return mapper.getMemberNo(vo);
 	}
 
 	@Override
-	public ArrayList<TaskVO> taskSerialize(MemberVO vo, String action) {
+	public ArrayList<TaskVO> taskSerialize(MemberVO vo) {
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
-		return mapper.taskSerialize(vo, action);
+		return mapper.taskSerialize(vo);
 	}
 	
 

@@ -36,11 +36,11 @@ public class GanttServiceImpl implements GanttService{
 	}
 
 	@Override
-	public ArrayList<TaskVO> taskSerialize(UsersVO vo, String action) {
+	public ArrayList<TaskVO> taskSerialize(UsersVO vo) { // Gantt Chart 구현
 		ArrayList<TaskVO> taskList = null; 
 		MemberVO m_vo = dao.getMemberNo(vo);
 		if(m_vo != null){
-			taskList = dao.taskSerialize(m_vo, action);
+			taskList = dao.taskSerialize(m_vo);
 		}
 		return taskList;
 	}
