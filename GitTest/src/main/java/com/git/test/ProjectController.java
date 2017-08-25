@@ -15,6 +15,7 @@ import com.git.test.VO.TaskVO;
 import com.git.test.VO.UsersVO;
 import com.git.test.service.GanttServiceImpl;
 import com.git.test.service.ProjectServiceImpl;
+import com.git.test.service.UsersServiceImpl;
 
 @RequestMapping("/project")
 @Controller
@@ -24,8 +25,14 @@ public class ProjectController {
 	ProjectServiceImpl service;
 	@Autowired
 	GanttServiceImpl service_G;
+<<<<<<< HEAD
 	
 	// 1 Gantt 불러오기
+=======
+	@Autowired
+	UsersServiceImpl userService;
+
+>>>>>>> branch 'master' of https://github.com/all4space/universe.git
 	@RequestMapping(value = "Gantt", method = RequestMethod.GET)
 	public ModelAndView GanttForm(UsersVO vo,HttpSession session,Model model) {
 		String userId = (String) session.getAttribute("loginId");
@@ -37,6 +44,16 @@ public class ProjectController {
 		ArrayList<TaskVO> taskList = service_G.taskSerialize(vo);
 		mav.addObject("taskList",taskList);
 		return mav;
+	}
+
+	@RequestMapping(value = "projectForm", method = RequestMethod.GET)
+	public ModelAndView projectForm() {
+		
+		ModelAndView mov = new ModelAndView("/projectForm");
+		mov.addObject("groupNameList", userService.groupNameList());
+		System.out.println("mov? " + mov.toString());
+		
+		return mov;
 	}
 	
 }

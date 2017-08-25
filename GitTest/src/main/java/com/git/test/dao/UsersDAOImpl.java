@@ -1,5 +1,7 @@
 package com.git.test.dao;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -42,6 +44,12 @@ public class UsersDAOImpl implements UsersDAO{
 	public int delete(UsersVO vo) {
 		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
 		return mapper.delete(vo);
+	}
+	
+public ArrayList<UsersVO> groupNameList() {
+		
+		UsersMapper mapper = Sqlsession.getMapper(UsersMapper.class);
+		return mapper.groupNameList();
 	}
 
 }
