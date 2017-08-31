@@ -344,6 +344,8 @@
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li><a href="index.jsp"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+						<!-- WBS 메뉴 -->
+						<li><a href="/test/wbs/wbsForm"><i class="icon-bar-chart"></i><span class="hidden-tablet"> WBS</span></a></li>	
 						<li><a href="messages.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
 						<li><a href="tasks.jsp"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
 						<li><a href="/test/project/Gantt"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
