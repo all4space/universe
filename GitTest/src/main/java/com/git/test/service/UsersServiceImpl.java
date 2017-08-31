@@ -43,10 +43,10 @@ public class UsersServiceImpl implements UsersService{
 	
 	@Override
 	public void login(UsersVO vo, HttpSession session) {
-		vo = dao.login(vo);
-		if(vo != null){
-			session.setAttribute("loginId", vo.getUserId());
-			session.setAttribute("userName", vo.getUserName());
+		UsersVO loginVO = dao.login(vo);
+		if(dao.login(vo) != null){
+			session.setAttribute("loginId", loginVO.getUserId());
+			session.setAttribute("userName", loginVO.getUserName());
 		}
 	}
 
