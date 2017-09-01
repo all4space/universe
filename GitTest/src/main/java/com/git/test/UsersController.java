@@ -81,6 +81,9 @@ public class UsersController {
         if(service.delete(vo)){
         	rttr.addFlashAttribute("msg", "true");
         }
+        else{
+        	rttr.addFlashAttribute("msg", "false");
+        }
         return "redirect:/";
 	}
 }

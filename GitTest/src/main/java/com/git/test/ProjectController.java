@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.git.test.VO.ProjectVO;
 import com.git.test.VO.TaskVO;
 import com.git.test.VO.UsersVO;
 import com.git.test.service.GanttServiceImpl;
@@ -27,10 +28,10 @@ public class ProjectController {
 	@Autowired
 	GanttServiceImpl service_G;
 	
-	// 1 Gantt 불러오기
 	@Autowired
 	UsersServiceImpl userService;
 
+	// 1 Gantt 불러오기
 	@RequestMapping(value = "GanttForm")
 	public ModelAndView GanttForm(UsersVO vo,HttpSession session,Model model) {
 		String userId = (String) session.getAttribute("loginId");
@@ -65,6 +66,22 @@ public class ProjectController {
 		
 		return mov;
 	}
-	
+	@RequestMapping(value = "groupMemberList", method = RequestMethod.POST)
+	@ResponseBody
+	public ArrayList<UsersVO> groupMemberList(String groupName) {
+		
+		System.out.println("여기는요"
+				+ userService.groupMemberList(groupName));
+		return userService.groupMemberList(groupName);
+	}
+	@RequestMapping(value = "projectAdd", method = RequestMethod.POST) // 프로젝트 생성
+	public String projectAdd(ProjectVO pvo, String userName) 
+	{
+		System.out.println("Project ADD!!!");
+		System.out.println(pvo.toString());
+		System.out.println(userName);
+		
+		return "taskForm";
+	}
 }
 

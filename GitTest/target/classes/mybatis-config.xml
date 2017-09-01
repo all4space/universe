@@ -13,5 +13,6 @@
 		<mappers>
 			<mapper resource="mapper/Usersmapper.xml" />
 			<mapper resource="mapper/Projectmapper.xml" />
+			<mapper resource="mapper/Wbsmapper.xml" />
 		</mappers>
 </configuration>

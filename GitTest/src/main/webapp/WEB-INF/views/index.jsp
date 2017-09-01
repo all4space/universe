@@ -343,7 +343,13 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
+<<<<<<< HEAD
 						<li><a href="/"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+=======
+						<li><a href="index.jsp"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+						<!-- WBS 메뉴 -->
+						<li><a href="/test/wbs/wbsForm"><i class="icon-bar-chart"></i><span class="hidden-tablet"> WBS</span></a></li>	
+>>>>>>> branch 'master' of https://github.com/all4space/universe.git
 						<li><a href="messages.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
 						<li><a href="tasks.jsp"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
 						<li><a href="/test/project/GanttForm"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
@@ -356,8 +362,13 @@
 								<li><a class="submenu" href="submenu3.jsp"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
 							</ul>	
 						</li>
+<<<<<<< HEAD
 						<li><a href="form.jsp"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
 						<li><a href="/test/chart"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
+=======
+						<li><a href="/test/project/projectForm"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+						<li><a href="chart.jsp"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
+>>>>>>> branch 'master' of https://github.com/all4space/universe.git
 						<li><a href="typography.jsp"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
 						<li><a href="gallery.jsp"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
 						<li><a href="table.jsp"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>

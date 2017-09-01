@@ -23,6 +23,10 @@ public interface ProjectMapper {
 	public TaskVO LastDate(MemberVO vo); // progress 100% 으로 나타내기 위해 맨처음 날짜와 맨마지막 날짜 뽑는 메소드
 	
 	public ArrayList<TaskVO> taskSerialize(TaskVO vo, String action); // 현황
+
+	public ArrayList<TaskVO> taskSerialize(MemberVO vo);
+
+	public ArrayList<TaskVO> taskSerialize(MemberVO vo, String action);
 	
 	public ArrayList<UsersVO> groupNameList();
 }
