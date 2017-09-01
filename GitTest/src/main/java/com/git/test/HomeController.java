@@ -36,4 +36,12 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "chart", method = RequestMethod.GET)
+	public String chart() {
+		return "chart";
+	}
+	@RequestMapping(value = "calendar", method = RequestMethod.GET)
+	public String calendar() {
+		return "calendar";
+	}
 }

@@ -36,13 +36,8 @@ public class GanttServiceImpl implements GanttService{
 	}
 
 	@Override
-	public ArrayList<TaskVO> taskSerialize(UsersVO vo) { // Gantt Chart 구현
-		ArrayList<TaskVO> taskList = null; 
-		MemberVO m_vo = dao.getMemberNo(vo);
-		if(m_vo != null){
-			taskList = dao.taskSerialize(m_vo);
-		}
-		return taskList;
+	public ArrayList<TaskVO> taskSerialize(TaskVO vo, String action) { // Gantt Chart 구현
+		return null;
 	}
 
 	@Override
@@ -55,6 +50,16 @@ public class GanttServiceImpl implements GanttService{
 	public void historyAdd(HistoryVO vo) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<TaskVO> taskList(UsersVO vo) {
+		ArrayList<TaskVO> taskList = null; 
+		MemberVO m_vo = dao.getMemberNo(vo);
+		if(m_vo != null){
+			taskList = dao.taskList(m_vo);
+		}
+		return taskList;
 	}
 
 

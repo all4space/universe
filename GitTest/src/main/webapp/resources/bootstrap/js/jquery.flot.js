@@ -910,7 +910,7 @@
             }
             else if (w == null || h == null) {
                 // calculate y label dimensions
-                for (i = 0; i < ticks.length; ++i) {
+                for (i = 0; i < 13; ++i) {
                     l = ticks[i].label;
                     if (l)
                         labels.push('<div class="tickLabel">' + l + '</div>');

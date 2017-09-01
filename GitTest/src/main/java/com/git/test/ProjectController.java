@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.git.test.VO.TaskVO;
@@ -25,15 +26,12 @@ public class ProjectController {
 	ProjectServiceImpl service;
 	@Autowired
 	GanttServiceImpl service_G;
-<<<<<<< HEAD
 	
 	// 1 Gantt 불러오기
-=======
 	@Autowired
 	UsersServiceImpl userService;
 
->>>>>>> branch 'master' of https://github.com/all4space/universe.git
-	@RequestMapping(value = "Gantt", method = RequestMethod.GET)
+	@RequestMapping(value = "GanttForm")
 	public ModelAndView GanttForm(UsersVO vo,HttpSession session,Model model) {
 		String userId = (String) session.getAttribute("loginId");
 		String userName = (String) session.getAttribute("userName");
@@ -41,14 +39,26 @@ public class ProjectController {
 		vo.setUserName(userName);
 		
 		ModelAndView mav = new ModelAndView("/ui");
-		ArrayList<TaskVO> taskList = service_G.taskSerialize(vo);
+		ArrayList<TaskVO> taskList = service_G.taskList(vo);
+		
+		
+		// 요기에 집어넣음 밑에 
 		mav.addObject("taskList",taskList);
 		return mav;
 	}
+	
+	@RequestMapping(value = "MonthChart", method = RequestMethod.GET)
+	public ModelAndView MonthStack(TaskVO vo){
+		ModelAndView mav = new ModelAndView("/chart");
+		ArrayList<TaskVO> monthTaskList = service_G.taskSerialize(vo,"month");
+		return mav;
+	}
+	
+	
+	
 
 	@RequestMapping(value = "projectForm", method = RequestMethod.GET)
 	public ModelAndView projectForm() {
-		
 		ModelAndView mov = new ModelAndView("/projectForm");
 		mov.addObject("groupNameList", userService.groupNameList());
 		System.out.println("mov? " + mov.toString());

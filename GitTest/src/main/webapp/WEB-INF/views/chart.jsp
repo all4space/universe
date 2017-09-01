@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +18,10 @@
 	<!-- end: Mobile Specific -->
 	
 	<!-- start: CSS -->
-	<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link id="base-style" href="css/style.css" rel="stylesheet">
-	<link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
+	<link id="bootstrap-style" href="/test/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/test/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link id="base-style" href="/test/resources/bootstrap/css/style.css" rel="stylesheet">
+	<link id="base-style-responsive" href="/test/resources/bootstrap/css/style-responsive.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
 	
@@ -26,23 +29,32 @@
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
+		<link id="ie-style" href="/test/resources/bootstrap/cssie.css" rel="stylesheet">
 	<![endif]-->
 	
 	<!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
+		<link id="ie9style" href="/test/resources/bootstrap/cssie9.css" rel="stylesheet">
 	<![endif]-->
 		
 	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="/test/resources/bootstrap/img/favicon.ico">
 	<!-- end: Favicon -->
+		<meta name="description" content="chart created using amCharts live editor" />
+		
+		<!-- amCharts javascript sources -->
+		<script src="https://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+		<script src="https://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
+		<script src="https://www.amcharts.com/lib/3/themes/undefined.js" type="text/javascript"></script>
+		
 	
-		
-		
-		
 </head>
-
+<script>
+function Month(){
+	location.href="/test/project/MonthChart";
+}
+</script>
 <body>
+
 		<!-- start: Header -->
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -335,7 +347,7 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.jsp"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+						<li><a href="/test/"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 						<li><a href="messages.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
 						<li><a href="tasks.jsp"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
 						<li><a href="ui.jsp"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
@@ -413,6 +425,8 @@
 					</div>
 				</div>
 				
+				
+	<!-- 여기부터 -->			
 				<div class="box">
 					<div class="box-header">
 						<h2><i class="halflings-icon white list-alt"></i><span class="break"></span>Stack Example</h2>
@@ -423,7 +437,8 @@
 						</div>
 					</div>
 					<div class="box-content">
-						 <div id="stackchart" class="center" style="height:300px;"></div>
+						 <div id="stackchart" class="center" style="height:300px;">
+						 </div>
 
 						<p class="stackControls center">
 							<input class="btn" type="button" value="With stacking">
@@ -434,9 +449,81 @@
 							<input class="btn-primary" type="button" value="Bars">
 							<input class="btn-primary" type="button" value="Lines">
 							<input class="btn-primary" type="button" value="Lines with steps">
+							<button class="btn btn-small btn-info" onclick="Month()">Month</button>
+							<button class="btn btn-small btn-inverse">Week</button>		
+							<button class="btn btn-small btn-inverse">Day</button>						
 						</p>
 					</div>
 				</div>
+
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+			AmCharts.makeChart("chartdiv",
+				{
+					"type": "serial",
+					"categoryField": "category",
+					"maxSelectedTime": -1,
+					"zoomOutButtonPadding": 10,
+					"startDuration": 2,
+					"processCount": 1001,
+					"processTimeout": 2,
+					"theme": "light",
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonText": "[[title]] of [[category]]:[[value]]",
+							"fillAlphas": 1,
+							"id": "totalTime",
+							"labelText": "[[value]]",
+							"tabIndex": 0,
+							"title": "업무량",
+							"type": "column",
+							"valueField": "column-stic"
+						},
+						{
+							"balloonText": "[[title]] of [[category]]:[[value]]",
+							"bullet": "round",
+							"id": "doneTime",
+							"labelText": "[[value]]",
+							"lineThickness": 2,
+							"title": "업무 현황(달성도)",
+							"valueField": "column-line"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "yAxis",
+							"title": "업무 달성도"
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"enabled": true,
+						"useGraphSettings": true
+					},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 15,
+							"text": "업무 현황 그래프"
+						}
+					],
+					"dataProvider": [
+	<%for(int i = 0; i < 3 ; i++){
+	%>					
+						{'category': 'category1', 'column-stic': 10, 'column-line': 5	},
+	<% } %>
+					]
+				}
+			);
+		</script>
+<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+		<!-- 여기까지 -->
 
 			</div><!--/row-->
 			
@@ -521,7 +608,7 @@
 		
 	<div class="modal hide fade" id="myModal">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">×</button>
+			<button type="button" class="close" data-dismiss="modal">Ã</button>
 			<h3>Settings</h3>
 		</div>
 		<div class="modal-body">

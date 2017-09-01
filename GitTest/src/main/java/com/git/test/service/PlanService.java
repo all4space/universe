@@ -17,7 +17,7 @@ public interface PlanService {
  
  public ArrayList<TaskVO>Week(TaskVO Task); // 주별 달력 표시.
  
- public ArrayList<TaskVO>Month(TaskVO Task);// 월별 달력 표시.
+ public ArrayList<TaskVO> Month(TaskVO Task);// 월별 달력 표시.
  
  public ArrayList<TaskVO>Search(TaskVO Task); // 검색 표시.
  

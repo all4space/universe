@@ -18,7 +18,6 @@ public class TaskVO {
 
 	public TaskVO(int projectNo, int memberNo, int taskNo, String taskName, String taskContent,
 			String taskPriority, String taskStatus, String startDate, String dueDate, int totalTime, int doneTime) {
-		super();
 		this.projectNo = projectNo;
 		this.memberNo = memberNo;
 		this.taskNo = taskNo;
@@ -118,6 +117,14 @@ public class TaskVO {
 
 	public void setDoneTime(int doneTime) {
 		this.doneTime = doneTime;
+	}
+
+	@Override
+	public String toString() {
+		return "TaskVO [projectNo=" + projectNo + ", memberNo=" + memberNo + ", taskNo=" + taskNo + ", taskName="
+				+ taskName + ", taskContent=" + taskContent + ", taskPriority=" + taskPriority + ", taskStatus="
+				+ taskStatus + ", startDate=" + startDate + ", dueDate=" + dueDate + ", totalTime=" + totalTime
+				+ ", doneTime=" + doneTime + "]";
 	}
 
 }

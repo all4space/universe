@@ -9,8 +9,14 @@
 	SELECT memberno from member where userno=(select userno from users where userid = #{userId} and username = #{userName}) 
 </select>
 
-<select id="taskSerialize" resultType="TaskVO" parameterType="MemberVO">
-	SELECT * FROM task where memberno = #{memberNo}
+<select id="taskList" resultType="TaskVO" parameterType="MemberVO">
+	SELECT projectno, memberno, taskno, taskcontent, taskpriority,taskstatus,taskname,to_char(startdate,'yyyy-mm-dd')as startDate, to_char(duedate,'yyyy-mm-dd')as dueDate,totalTime,doneTime FROM task where memberno = #{memberNo}
 </select>
 
+<select id="LastDate" resultType="TaskVO" parameterType="MemberVO">
+	SELECT max(duedate)as dueDate FROM task WHERE memberno = #{memberNo} ORDER BY duedate desc
+</select>
+<select id="taskSerialize" parameterType="TaskVO" resultType="TaskVO">
+ 	select * from task where startdate &lt; #{duedate} and duedate &gt; #{startdate} and projectnum = #{projectnum}
+</select>
 </mapper>

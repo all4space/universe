@@ -17,7 +17,9 @@ public interface GanttService {
 	/*업무 그래프 : 시각화(일,주,달)는 컨트롤러에서 명령받을 것
 	 **			서비스는 하나에서 일,주,달로 쪼개어 리턴함. 명령값(action) 받을거임
 	 */
-	public ArrayList<TaskVO> taskSerialize(UsersVO vo);
+	public ArrayList<TaskVO> taskList(UsersVO vo);
+	
+	public ArrayList<TaskVO> taskSerialize(TaskVO vo, String action);
 	//히스토리 가져오기
 	public ArrayList<HistoryVO> getHistoryList();
 	public void historyAdd(HistoryVO vo); //히스토리 추가 (log 는 sysdate)

@@ -43,18 +43,29 @@ public class ProjectDAOImpl implements ProjectDAO{
 
 	@Override
 	public MemberVO getMemberNo(UsersVO vo) {
-		System.out.println("들어오냐고");
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
 		return mapper.getMemberNo(vo);
 	}
 
 	@Override
-	public ArrayList<TaskVO> taskSerialize(MemberVO vo) {
+	public ArrayList<TaskVO> taskList(MemberVO vo) {
 		ProjectMapper mapper = sqlSession.getMapper(ProjectMapper.class);
-		return mapper.taskSerialize(vo);
+		return mapper.taskList(vo);
 	}
 
 	public ArrayList<UsersVO> groupNameList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<TaskVO> taskSerialize(TaskVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TaskVO LastDate(MemberVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
