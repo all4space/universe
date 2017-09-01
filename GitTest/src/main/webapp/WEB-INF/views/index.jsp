@@ -358,7 +358,7 @@
 								<li><a class="submenu" href="submenu3.jsp"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="form.jsp"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+						<li><a href="/test/project/projectForm"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
 						<li><a href="chart.jsp"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
 						<li><a href="typography.jsp"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
 						<li><a href="gallery.jsp"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>

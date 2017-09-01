@@ -32,9 +32,14 @@
 	WHERE userid = #{userId} and userpwd = #{userPwd}
 </delete>
 
+ <!-- 그룹네임 가져오기 -->
 <select id="groupNameList" resultType = "UsersVO">
 	select distinct groupname from users order by groupname <!-- 중복제거 -->
 </select>
+ <!-- 멤버가져오기 -->
+<select id="groupMemberList" resultType = "UsersVO" parameterType="string">
+	select userName from users where groupName = #{groupName}
+</select>	
 
 </mapper>
 

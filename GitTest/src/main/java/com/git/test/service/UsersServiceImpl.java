@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.git.test.VO.UsersVO;
 import com.git.test.dao.UsersDAOImpl;
+import com.git.test.dao.UsersMapper;
 
 @Service
 public class UsersServiceImpl implements UsersService{
@@ -17,6 +19,8 @@ public class UsersServiceImpl implements UsersService{
 	@Autowired
 	UsersDAOImpl dao;
 	
+	@Autowired
+	SqlSession sqlSession;
 	
 	@Override
 	public void join(UsersVO vo) {
@@ -61,6 +65,15 @@ public class UsersServiceImpl implements UsersService{
 	public ArrayList<UsersVO> groupNameList() {
 
 		return dao.groupNameList();
+	}
+
+	public ArrayList<UsersVO> groupMemberList(String groupName) {
+
+		UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
+		ArrayList<UsersVO> vo = mapper.groupMemberList(groupName);
+		System.out.println("mapper" + vo.toString());
+		return vo;
+		
 	}
 
 	

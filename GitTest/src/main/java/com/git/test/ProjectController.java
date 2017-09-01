@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.git.test.VO.ProjectVO;
 import com.git.test.VO.TaskVO;
 import com.git.test.VO.UsersVO;
 import com.git.test.service.GanttServiceImpl;
@@ -25,14 +27,10 @@ public class ProjectController {
 	ProjectServiceImpl service;
 	@Autowired
 	GanttServiceImpl service_G;
-<<<<<<< HEAD
 	
-	// 1 Gantt 불러오기
-=======
 	@Autowired
 	UsersServiceImpl userService;
 
->>>>>>> branch 'master' of https://github.com/all4space/universe.git
 	@RequestMapping(value = "Gantt", method = RequestMethod.GET)
 	public ModelAndView GanttForm(UsersVO vo,HttpSession session,Model model) {
 		String userId = (String) session.getAttribute("loginId");
@@ -55,6 +53,22 @@ public class ProjectController {
 		
 		return mov;
 	}
-	
+	@RequestMapping(value = "groupMemberList", method = RequestMethod.POST)
+	@ResponseBody
+	public ArrayList<UsersVO> groupMemberList(String groupName) {
+		
+		System.out.println("여기는요"
+				+ userService.groupMemberList(groupName));
+		return userService.groupMemberList(groupName);
+	}
+	@RequestMapping(value = "projectAdd", method = RequestMethod.POST) // 프로젝트 생성
+	public String projectAdd(ProjectVO pvo, String userName) 
+	{
+		System.out.println("Project ADD!!!");
+		System.out.println(pvo.toString());
+		System.out.println(userName);
+		
+		return "taskForm";
+	}
 }
 
